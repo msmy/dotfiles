@@ -33,6 +33,7 @@ apps=(
     wifi-password
     tmux
     reattach-to-user-namespace
+    vim
 )
 
 brew install "${apps[@]}"

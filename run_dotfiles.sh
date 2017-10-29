@@ -17,6 +17,9 @@ declare -a FILES_TO_SYMLINK=(
   'shell/shell_exports'
 
   'tmux/tmux.conf'
+
+  'vim/vimrc'
+  'vim/vim'
 )
 
 # Warn user this script will overwrite current dotfiles
