@@ -259,3 +259,6 @@
 [user]
     name = Malcolm Smy
     email = msmy@sky.com
+
+[commit]
+    template = ~/.gitmessage
