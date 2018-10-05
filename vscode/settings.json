@@ -1,0 +1,44 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "files.autoSave": "onWindowChange",
+    "editor.renderWhitespace": "all",
+    "eslint.run": "onType",
+    "eslint.autoFixOnSave": true,
+    "editor.tabSize": 2,
+    "cucumberautocomplete.steps": [ 
+        "apps/atlas-web/features/**/*"
+    ],
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": true,
+    "cSpell.language": "en-GB",
+    "ruby.lint": {
+        "rubocop": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    },
+    "gitlens.codeLens.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "workbench.panel.location": "right",
+    "git.enableSmartCommit": true,
+    "explorer.autoReveal": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "gitlens.keymap": "alternate",
+    "gitlens.historyExplorer.enabled": true,
+}
