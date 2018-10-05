@@ -12,6 +12,7 @@ declare -a dirs_to_prepend=(
   "/usr/local/mysql/bin"
   "/sw/bin/"
   "$HOME/dotfiles/bin"
+  "$HOME/Projects/dotfiles/bin"
   "$HOME/bin"
   "$HOME/.rvm/bin"
   "$(brew --prefix ruby)/bin"
