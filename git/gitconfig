@@ -184,7 +184,7 @@
 
 [core]
         editor = vim
-        abbrev = 12
+        abbrev = 7
         attributesfile = ~/.gitattributes
         excludesfile = ~/.gitignore
         autocrlf = input
