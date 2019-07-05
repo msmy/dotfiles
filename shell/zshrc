@@ -71,7 +71,7 @@ ZSH_THEME="avit"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew node npm history git-flow zsh-syntax-highlighting)
+plugins=(node npm history zsh-syntax-highlighting)
 
 # User configuration
 
@@ -85,21 +85,13 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-# Automatically list directory contents on `cd`.
-# auto-ls () {
-#   emulate -L zsh;
-#   # explicit sexy ls'ing as aliases arent honored in here.
-#   hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
-# }
-# chpwd_functions=( auto-ls $chpwd_functions )
-
 source $ZSH/oh-my-zsh.sh
 
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zsh.local ] && source ~/.zsh.local
 
 # npm tab completion
-. <(npm completion)
+#. <(npm completion)
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export PATH="/usr/local/bin:$PATH"
@@ -111,3 +103,9 @@ export NVM_DIR="$HOME/.nvm"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/msm27/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/msm27/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#if [ -f '/Users/msm27/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/msm27/google-cloud-sdk/completion.zsh.inc'; fi
