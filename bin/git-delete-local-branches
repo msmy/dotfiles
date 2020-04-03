@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Sorry, i know its a bad idea to use git branch :s
+git branch --no-color | grep -v "master" | xargs git branch -D
