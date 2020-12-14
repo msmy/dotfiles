@@ -25,7 +25,7 @@ apps=(
     coreutils
     moreutils
     findutils
-    gnu-sed --with-default-names
+    gnu-sed
     source-highlight
     the_silver_searcher
     tree
