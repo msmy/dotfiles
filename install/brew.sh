@@ -34,6 +34,7 @@ apps=(
     tmux
     reattach-to-user-namespace
     vim
+    z
 )
 
 brew install "${apps[@]}"
