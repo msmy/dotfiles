@@ -14,8 +14,8 @@ declare -a dirs_to_prepend=(
   "$HOME/dotfiles/bin"
   "$HOME/Projects/dotfiles/bin"
   "$HOME/bin"
-  "$HOME/.rvm/bin"
-  "$(brew --prefix ruby)/bin"
+# "$HOME/.rvm/bin"
+#  "$(brew --prefix ruby)/bin"
   "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
   "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
 )
@@ -112,8 +112,8 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+#export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 alias k=kubectl
 export PATH="/usr/local/opt/curl/bin:$PATH"

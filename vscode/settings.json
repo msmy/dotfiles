@@ -1,18 +1,22 @@
 {
     "workbench.colorTheme": "Monokai Dimmed",
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "onFocusChange",
     "editor.renderWhitespace": "all",
     "eslint.run": "onType",
-    "eslint.autoFixOnSave": true,
     "editor.tabSize": 2,
-    "cucumberautocomplete.steps": [ 
-        "apps/atlas-web/features/**/*"
+    "cucumberautocomplete.steps": [
+        "apps/atlas-web/features/**/*",
+        "apps/atlas-web-sales/features/**/*",
+        "libraries/atlas-common-functional-test/**/*",
+        "test/features/**/*",
+        "cypress/integration/**/*",
+        "test-harness/cypress/**/*"
     ],
-    "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
     "workbench.editor.enablePreview": true,
     "cSpell.language": "en-GB",
     "ruby.lint": {
+
         "rubocop": true
     },
     "search.exclude": {
@@ -34,11 +38,36 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "workbench.panel.location": "right",
     "git.enableSmartCommit": true,
     "explorer.autoReveal": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.external.osxExec": "iTerm.app",
     "gitlens.keymap": "alternate",
-    "gitlens.historyExplorer.enabled": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "search.usePCRE2": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "liveshare.account": "malcolm.smy@sky.uk",
+    "git.path": "/usr/bin/git",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "eslint.options": {
+
+    },
+    "prettier.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "javascript.format.enable": false,
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
+    "prettier.enable": false,
+    "eslint.debug": true,
+    "eslint.format.enable": true,
+    "eslint.codeAction.showDocumentation": {
+
+        "enable": true
+    },
+    "window.zoomLevel": 1,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.defaultProfile.osx": "zsh"
 }
