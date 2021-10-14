@@ -9,7 +9,9 @@ sudo -v
 if test ! $(which brew)
 then
   echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Make sure we’re using the latest Homebrew
@@ -19,6 +21,7 @@ brew update
 brew upgrade
 
 apps=(
+    yarn
     npm
     nvm
     bash-completion2
@@ -32,7 +35,6 @@ apps=(
     wget
     wifi-password
     tmux
-    reattach-to-user-namespace
     vim
     z
 )
