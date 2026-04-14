@@ -19,10 +19,20 @@ Thumbs.db
 # Compiled Python files
 *.pyc
 
-# npm & bower
-bower_components
+# npm
 node_modules
-npm-debug.log
+npm-debug.log*
 
-# IDEs stuff
+# IDEs
 .idea
+.vscode/
+
+# Environment / secrets
+.env
+.env.local
+
+# Vim swap files
+*.sw[nop]
+
+# Yarn
+.yarn/

@@ -1,74 +1,33 @@
 {
-    "workbench.colorTheme": "Monokai Dimmed",
     "files.autoSave": "onFocusChange",
-    "editor.renderWhitespace": "all",
-    "eslint.run": "onType",
     "editor.tabSize": 2,
-    "editor.bracketPairColorization.enabled": true,
-    "cucumberautocomplete.steps": [
-        "apps/atlas-web/features/**/*",
-        "apps/atlas-web-sales/features/**/*",
-        "libraries/atlas-common-functional-test/**/*",
-        "test/features/**/*",
-        "cypress/integration/**/*",
-        "test-harness/cypress/**/*"
-    ],
     "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
     "workbench.editor.enablePreview": true,
     "cSpell.language": "en-GB",
-    "ruby.lint": {
-
-        "rubocop": true
-    },
     "search.exclude": {
         "**/node_modules": true,
-        "**/bower_components": true,
         "**/dist": true
-    },
-    "gitlens.codeLens.enabled": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
     },
     "git.enableSmartCommit": true,
     "explorer.autoReveal": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.external.osxExec": "iTerm.app",
-    "gitlens.keymap": "alternate",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
     "search.usePCRE2": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     },
-    "liveshare.account": "REDACTED",
-    "git.path": "/usr/bin/git",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "eslint.options": {
-
-    },
-    "prettier.packageManager": "yarn",
-    "eslint.packageManager": "yarn",
-    "javascript.format.enable": false,
-    "javascript.format.insertSpaceAfterCommaDelimiter": false,
-    "prettier.enable": false,
-    "eslint.debug": true,
+    "eslint.run": "onType",
     "eslint.format.enable": true,
     "eslint.codeAction.showDocumentation": {
-
         "enable": true
     },
-    "window.zoomLevel": 1,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "javascript.format.enable": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    "terminal.integrated.defaultProfile.osx": "zsh"
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.iconTheme": "material-icon-theme"
 }

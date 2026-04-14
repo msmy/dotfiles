@@ -1,14 +1,19 @@
 #!/bin/bash
 
-# Install Caskroom
-brew tap homebrew/cask
-brew tap homebrew/cask-versions
+# Install cask applications
 
-# Install packages
 apps=(
+    rectangle
+    iterm2
+    docker
+    raycast
+    suspicious-package
 )
 
-#brew cask install "${apps[@]}"
-
-# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip qlimagesize webpquicklook suspicious-package
+for app in "${apps[@]}"; do
+  if brew list --cask "$app" &>/dev/null; then
+    echo "$app already installed via brew, skipping."
+  else
+    brew install --cask "$app" || echo "Warning: $app failed to install, may already exist outside of brew."
+  fi
+done

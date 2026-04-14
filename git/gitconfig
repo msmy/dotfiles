@@ -7,14 +7,15 @@
         # Branch
         br = branch
         branch-name = rev-parse --abbrev-ref HEAD
-        branch-diff = diff master...HEAD
-        branch-files = "!git diff master...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
+        default-branch = !git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo main
+        branch-diff = "!git diff $(git default-branch)...HEAD"
+        branch-files = "!git diff $(git default-branch)...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
 
         # Commit
         c = commit
         ca = commit -a
         cm = commit -m
-        cal = !git add -A && git commit              # Commit all changes
+        cal = !git add -A && git commit
         cam = commit -am
         cne = commit --no-edit
         amend = commit --amend
@@ -41,32 +42,31 @@
 
         # Pull
         up = pull
-        plom = pull origin master
-        plum = pull upstream master
-        preb = !git fetch upstream && git rebase upstream/master
+        plom = !git pull origin $(git default-branch)
+        plum = !git pull upstream $(git default-branch)
+        preb = !git fetch upstream && git rebase upstream/$(git default-branch)
 
         # Push
         p = push
-        pom = push origin master
+        pom = !git push origin $(git default-branch)
         poh = push origin head
 
         # Stash
-        #st = stash
         stp = stash pop
 
         # Status/Logging
         s = status
         st = status
         ss = status -sb
-        hist = log --graph --pretty=custom           # Show custom graph
-        l = log --pretty=custom                      # Show custom log
+        hist = log --graph --pretty=custom
+        l = log --pretty=custom
         ll = log --stat --abbrev-commit
-        lc = shortlog --summary --numbered           # List contributors
+        lc = shortlog --summary --numbered
 
         # Reset
-        unstage = reset HEAD --                      # Mixed reset (affects HEAD and Index)
-        undo = reset --soft HEAD~1                   # Undo last commit (affects HEAD only)
-        reset = reset --hard HEAD~1                  # Remove last commit (from HEAD, Index and Working Dir)
+        unstage = reset HEAD --
+        undo = reset --soft HEAD~1
+        reset = reset --hard HEAD~1
 
         # Remote
         r = remote -v
@@ -74,17 +74,13 @@
         # Submodules
         subpl = submodule update --init --recursive
 
-        # Git flow
-        new = !git pull origin develop && git flow feature start
-        done = !git pull origin develop && git flow feature finish "$(git symbolic-ref --short HEAD | sed -n 's/^feature\\///p')"
-        go = !git checkout $1 && pull
-        master = !git checkout master && pull
-        develop = !git checkout develop && pull
-        mmm = !git fetch origin master && git rebase origin/master
-        ddd = !git fetch origin develop && git rebase origin/develop
+        # Branch cleanup
+        cleanup = "!git branch --merged | grep -Ev '(^\\*|^\\+|master|main|dev)' | xargs -n 1 git branch -d"
+        nuke = "!git branch | grep -Ev '(^\\*|^\\+|master|main)' | xargs git branch -D"
 
         # Misc
         publish = "!git push --set-upstream origin $(git branch-name)"
+        go = !git checkout $1 && pull
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -98,7 +94,7 @@
 
   # Find commits by commit message
 
-  cm = "!f() { \
+  fc = "!f() { \
       git log --pretty=custom --decorate --date=short --grep=\"$1\"; \
   }; f"
 
@@ -190,11 +186,14 @@
         autocrlf = input
         mergeoptions = --no-edit
         ignorecase = false
+        pager = delta
 
-[pager]
-        # Insanely beautiful diffs ==> npm install -g diff-so-fancy
-        diff = diff-so-fancy | less --tabs=4 -RFX
-        show = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+        diffFilter = delta --color-only
+
+[delta]
+        navigate = true
+        side-by-side = true
 
 [diff "bin"]
         # Use `hexdump` to diff binary files
@@ -239,14 +238,16 @@
 
 # Push easily http://stackoverflow.com/a/23918418/89484
 [push]
-        # Make `git push` automatically push relevant
-        # annotated tags when pushing branches out
         followTags = true
         default = current
 
 # Use separate file for username / github token / etc
 [include]
         path = ~/.gitconfig.local
+
+# Per-directory identity
+[includeIf "gitdir:~/github/msmy/"]
+        path = ~/.gitconfig-personal
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -256,10 +257,6 @@
 
 [fetch]
     prune = true
-
-[user]
-    name = Malcolm Smy
-    email = msmy@sky.com
 
 [commit]
     template = ~/.gitmessage
