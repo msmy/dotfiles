@@ -7,10 +7,7 @@ syntax on
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
 
-" Theme color
 Plug 'morhetz/gruvbox'
-set background=dark
-colorscheme gruvbox
 
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
@@ -73,6 +70,10 @@ let g:ale_sign_warning = '▶'
 let g:ale_fix_on_save = 0
 
 call plug#end()
+
+" Theme (must be after plug#end so the plugin is loaded)
+set background=dark
+silent! colorscheme gruvbox
 
 " quicker window movement
 nnoremap <C-j> <C-w>j
