@@ -150,7 +150,7 @@
 
 # So much color
 [color]
-        ui = always
+	ui = auto
 
 [color "branch"]
         current = green bold
