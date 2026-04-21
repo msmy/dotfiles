@@ -21,6 +21,9 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_grep_command = 'grep -e'
+if has('restricted')
+  let g:gitgutter_enabled = 0
+endif
 
 Plug 'yggdroot/indentline'
 let g:indentLine_color_term = 238
